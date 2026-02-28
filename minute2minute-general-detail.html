@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security Protocol – Minute-to-Minute Report | Gujarat Program</title>
+  <style>
+    :root{
+      --bg1:#ffffff;
+      --bg2:#f5f7fa;
+      --card: rgba(0,0,0,.04);
+      --card2: rgba(0,0,0,.03);
+      --border: rgba(0,0,0,.12);
+      --text:#1a1d26;
+      --muted: rgba(26,29,38,.7);
+      --soft: rgba(0,0,0,.08);
+      --accent1:#5b21b6;
+      --accent2:#0284c7;
+      --accent3:#15803d;
+      --warn:#b45309;
+      --danger:#b91c1c;
+
+      --radius: 16px;
+      --radius2: 22px;
+      --shadow: 0 4px 24px rgba(0,0,0,.08);
+      --shadow2: 0 2px 12px rgba(0,0,0,.06);
+
+      --max: 1200px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background: var(--bg1);
+      line-height: 1.55;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding: 28px 18px 80px;}
+
+    /* Premium header */
+    .premiumHeader{
+      position:relative;
+      margin-bottom: 20px;
+      border-radius: var(--radius2);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: #fff;
+    }
+    .premiumHeader-inner{
+      position:relative;
+      display:flex;
+      align-items:center;
+      gap: 24px;
+      padding: 24px 22px;
+      flex-wrap: wrap;
+    }
+    .premiumHeader-logo{
+      flex-shrink: 0;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid rgba(0,0,0,.12);
+      box-shadow: var(--shadow2);
+    }
+    .premiumHeader-logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .premiumHeader-text{
+      flex: 1;
+      min-width: 0;
+    }
+    .premiumHeader-text h1{
+      margin: 0;
+      font-size: clamp(1rem, 2.2vw + 8px, 1.35rem);
+      line-height: 1.4;
+      color: var(--text);
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+    @media (max-width: 640px){
+      .premiumHeader-inner{ flex-direction: column; text-align: center; padding: 20px 16px; }
+      .premiumHeader-logo{ width: 88px; height: 88px; }
+    }
+
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+    .topbar .inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 12px 18px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand{
+      display:flex; gap:10px; align-items:center;
+      min-width: 280px;
+    }
+    .logo{
+      width:40px; height:40px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      box-shadow: var(--shadow2);
+      display:grid; place-items:center;
+      border: 1px solid rgba(255,255,255,.4);
+    }
+    .logo svg{opacity:.95; stroke: #fff;}
+    .brand h1{
+      margin:0; font-size: 14px; letter-spacing:.3px;
+      line-height:1.2;
+    }
+    .brand .sub{display:block; margin-top:2px; font-size:12px; color: var(--muted)}
+    .actions{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    }
+    .btn{
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 14px;
+      cursor:pointer;
+      transition:.18s ease;
+      box-shadow: var(--shadow2);
+      font-weight: 600;
+      font-size: 13px;
+      display:flex; align-items:center; gap:8px;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(0,0,0,.06)}
+    .btn:active{transform: translateY(0px)}
+    .btnIcon{ display:inline-flex; align-items:center; justify-content:center; }
+    .btn.primary{
+      border: 1px solid var(--accent1);
+      background: linear-gradient(135deg, rgba(91,33,182,.15), rgba(2,132,199,.12));
+      color: var(--accent1);
+    }
+    .btn.good{
+      border: 1px solid var(--accent3);
+      background: rgba(21,128,61,.1);
+      color: var(--accent3);
+    }
+
+    header.hero{
+      margin-top: 18px;
+      border-radius: var(--radius2);
+      border: 1px solid var(--border);
+      background: #fff;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero .content{
+      position:relative;
+      padding: 26px 22px;
+      display:grid;
+      gap: 14px;
+    }
+    .kicker{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 12px;
+    }
+    .chip b{color:var(--text)}
+    .hero h2{
+      margin:0;
+      font-size: 22px;
+      line-height:1.2;
+      letter-spacing:.2px;
+    }
+    .hero p{margin:0; color: var(--muted); max-width: 85ch}
+    .hero .metaGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    @media (min-width: 860px){
+      .hero .metaGrid{grid-template-columns: 1.3fr .7fr;}
+    }
+
+    .panel{
+      border:1px solid var(--border);
+      background: var(--bg2);
+      border-radius: var(--radius);
+      padding: 14px 14px;
+      box-shadow: var(--shadow2);
+    }
+    .panel h3{
+      margin:0 0 10px;
+      font-size: 14px;
+      color: var(--text);
+      letter-spacing:.2px;
+      display:flex; gap:8px; align-items:center;
+    }
+    .panel ul{margin: 0; padding-left: 18px; color: var(--muted)}
+    .panel li{margin: 6px 0}
+
+    /* Sticky section navigation */
+    nav.sectionNav{
+      margin-top: 0;
+      display:flex; gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      position: sticky;
+      top: 56px;
+      z-index: 40;
+      padding: 10px 0 12px;
+      margin-bottom: 4px;
+      background: #fff;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 12px 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+    .navlink{
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 12px;
+      transition:.18s ease;
+    }
+    .navlink:hover{background: rgba(0,0,0,.06); color: var(--text)}
+    @media (max-width: 640px){
+      nav.sectionNav{ top: 52px; padding: 10px 12px; }
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 900px){
+      .grid2{grid-template-columns: 1fr 1fr;}
+    }
+
+    section{
+      margin-top: 18px;
+    }
+    .sectionTitle{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      margin: 22px 0 10px;
+    }
+    .sectionTitle h2{
+      margin:0;
+      font-size: 16px;
+      letter-spacing:.2px;
+      color: var(--text);
+    }
+    .sectionTitle .hint{
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .card{
+      border-radius: var(--radius2);
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+    }
+    .cardHeader{
+      padding: 14px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg2);
+    }
+    .cardHeader h3{
+      margin:0;
+      font-size: 14px;
+      letter-spacing:.2px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .icon{
+      width:28px; height:28px; border-radius: 10px;
+      display:grid; place-items:center;
+      background: rgba(0,0,0,.05);
+      border: 1px solid var(--border);
+    }
+    .cardBody{padding: 14px 16px;}
+
+    .note{
+      border-radius: var(--radius2);
+      border: 1px solid rgba(180,83,9,.35);
+      background: rgba(255,176,32,.08);
+      padding: 14px 16px;
+      box-shadow: var(--shadow2);
+      color: var(--muted);
+    }
+    .note b{color: var(--text)}
+
+    .tableWrap{
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      margin: 0 0 12px;
+    }
+    .tableWrap table{ margin-bottom: 0; }
+    table{
+      width:100%;
+      min-width: 520px;
+      border-collapse: separate;
+      border-spacing:0;
+      overflow:hidden;
+      border-radius: 16px;
+      border: none;
+      background: #fff;
+    }
+    th,td{
+      padding: 12px 12px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    th{
+      color: var(--text);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .9px;
+      background: var(--bg2);
+    }
+    tr:last-child td{border-bottom:none}
+    td strong{color: var(--text)}
+    td ul{margin: 8px 0 0 16px}
+    td li{margin: 6px 0}
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+    .pill.good{border-color: rgba(21,128,61,.4); color: var(--accent3);}
+    .pill.warn{border-color: rgba(180,83,9,.4); color: var(--warn);}
+    .pill.danger{border-color: rgba(185,28,28,.4); color: var(--danger);}
+
+    .contact{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding: 10px 10px;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      border-radius: 14px;
+      margin: 10px 0;
+      align-items:flex-start;
+    }
+    .contact b{color: var(--text)}
+    .contact .right{display:flex; gap:8px; flex-wrap:wrap; align-items:center; justify-content:flex-end}
+    .mini{
+      padding: 7px 9px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      cursor:pointer;
+      font-size: 12px;
+      font-weight: 650;
+      transition: .18s ease;
+    }
+    .mini:hover{background: var(--bg2); transform: translateY(-1px)}
+    .mini:active{transform: translateY(0)}
+    .miniIcon{ display:inline-flex; align-items:center; justify-content:center; margin-right:4px; vertical-align:middle; }
+    .mini.copy{border-color: var(--accent2); color: var(--accent2);}
+    .mini.call{border-color: var(--accent3); color: var(--accent3);}
+    .mini.tel a{color:inherit}
+
+    footer{
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align:center;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Responsive: table rows as cards */
+    @media (max-width: 768px){
+      .tableWrap{ overflow-x: visible; border: none; }
+      .tableWrap table{ min-width: 0; display: block; }
+      .tableWrap thead{ display: none; }
+      .tableWrap tbody{ display: block; }
+      .tableWrap tr{
+        display: block;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 14px;
+        margin-bottom: 12px;
+        background: #fff;
+        box-shadow: var(--shadow2);
+      }
+      .tableWrap tr:last-child{ margin-bottom: 0; }
+      .tableWrap td{
+        display: block;
+        border: none;
+        padding: 6px 0;
+        border-bottom: 1px solid rgba(0,0,0,.06);
+        color: var(--muted);
+      }
+      .tableWrap td:last-child{ border-bottom: none; padding-bottom: 0; }
+      .tableWrap td:first-child{ padding-top: 0; }
+      .tableWrap td::before{
+        content: attr(data-label);
+        font-weight: 700;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: .5px;
+        color: var(--text);
+        display: block;
+        margin-bottom: 4px;
+      }
+    }
+
+    /* Responsive: cards and spacing */
+    @media (max-width: 640px){
+      .wrap{ padding: 16px 12px 60px; }
+      .cardHeader{ flex-wrap: wrap; gap: 8px; }
+      .sectionTitle{ flex-direction: column; align-items: flex-start; }
+      .hero .content{ padding: 20px 16px; }
+      .premiumHeader-text h1{ font-size: 1rem; }
+    }
+
+    /* Print: A4-friendly (keep table layout, not cards) */
+    @page{ size: A4; margin: 15mm; }
+    @media print{
+      .tableWrap table{ display: table !important; min-width: 520px !important; }
+      .tableWrap thead{ display: table-header-group !important; }
+      .tableWrap tbody{ display: table-row-group !important; }
+      .tableWrap tr{ display: table-row !important; border: none !important; padding: 0 !important; margin: 0 !important; box-shadow: none !important; }
+      .tableWrap td{ display: table-cell !important; padding: 12px !important; border-bottom: 1px solid #ddd !important; }
+      .tableWrap td::before{ display: none !important; }
+      body{ background:#fff; color:#111; }
+      .topbar, .actions, nav.sectionNav { display:none !important; }
+      .premiumHeader{ background:#f8f9fa !important; border: 1px solid #ddd !important; box-shadow:none !important; }
+      .premiumHeader-logo{ border-color: #ccc !important; }
+      .premiumHeader-text h1{ color:#111 !important; }
+      header.hero, .card, .note, .tableWrap, table{ box-shadow:none !important; }
+      header.hero, .card, .note{
+        border: 1px solid #ddd !important;
+        background:#fff !important;
+      }
+      .tableWrap{ border: 1px solid #ddd !important; }
+      table{ background:#fff !important; }
+      th{ background:#f5f5f5 !important; color:#111 !important; }
+      td, th{ color:#111 !important; }
+      .wrap{ max-width: 100% !important; padding: 0 10mm !important; margin: 0 !important; }
+      .pill{ border: 1px solid #bbb !important; background:#fff !important; color:#111 !important; }
+      .card, section{ break-inside: avoid; }
+      .contact .right{ display: block !important; }
+      .mini{ border: 1px solid #ccc !important; background:#f5f5f5 !important; color:#111 !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky top bar -->
+  <div class="topbar">
+    <div class="inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- Shield Icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6l8-4z" stroke="white" stroke-width="1.6"/>
+            <path d="M12 7v10" stroke="white" stroke-width="1.6" opacity=".9"/>
+            <path d="M8.5 11.5h7" stroke="white" stroke-width="1.6" opacity=".9"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Security Protocol Report</h1>
+          <span class="sub">Minute-to-minute | Gujarat Program (6–11 March 2026)</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" onclick="scrollToId('contacts')"><span class="btnIcon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> Contacts</button>
+        <button class="btn good" onclick="scrollToId('directives')"><span class="btnIcon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></span> Directives</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- Premium header: logo + Hindi title -->
+    <header class="premiumHeader" id="top" aria-label="Program title">
+      <div class="premiumHeader-inner">
+        <div class="premiumHeader-logo" id="headerLogoWrap">
+          <img src="ShankracharyLogo.png" alt="Shankaracharya" width="100" height="100" onerror="this.onerror=null; this.style.display='none'; var w=document.getElementById('headerLogoWrap'); if(w) w.style.display='none';" />
+        </div>
+        <div class="premiumHeader-text">
+          <h1>ऋग्वेदीय पूर्वाम्नाय श्रीगोवर्द्धनमठ पुरीपीठाधीश्वर श्रीमज्जगद्गुरू शङ्कराचार्य स्वामी श्रीनिश्चलानन्द सरस्वतीजी महाराज का गुजरात प्रवास</h1>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <header class="hero" id="hero">
+      <div class="content">
+        <div class="kicker">
+          <span class="chip">🛡️ <b>SECURITY PROTOCOL</b></span>
+          <span class="chip">📍 Gujarat</span>
+          <span class="chip">📅 6th – 11th March 2026</span>
+          <span class="chip">🧭 Operational Coordination (Police/Admin/Venue)</span>
+        </div>
+
+        <h2>SECURITY PROTOCOL – MINUTE TO MINUTE REPORT</h2>
+        <p>
+          Prepared as per itinerary for safe movement, venue control, crowd management, route clearance,
+          and emergency readiness across Panchkula village area and Vadodara city.
+        </p>
+
+        <nav class="sectionNav" aria-label="Section navigation">
+          <a class="navlink" href="#day6">6th March • Arrival</a>
+          <a class="navlink" href="#panchkula">6–9 March • Panchkula</a>
+          <a class="navlink" href="#day9">9th March • Vadodara Move</a>
+          <a class="navlink" href="#day10">10th March • Events</a>
+          <a class="navlink" href="#day11">11th March • Departure</a>
+          <a class="navlink" href="#contacts">Contacts</a>
+          <a class="navlink" href="#directives">Directives</a>
+        </nav>
+
+        <div class="metaGrid">
+          <div class="panel" id="snapshot">
+            <h3>📌 Program Snapshot</h3>
+            <ul>
+              <li><b>Arrival:</b> 6th March 2026, 08:00 AM at Vadodara Railway Station (BRC) | Train No. 12926 – Paschim Express</li>
+              <li><b>Primary Village Location:</b> Panchkula (Approx. 55 km from Vadodara), Gujarat</li>
+              <li><b>Stay & Program:</b> 6th – 9th March 2026 (Panchkula area)</li>
+              <li><b>Vadodara Stay:</b> 9th – 11th March 2026 at Shivalay Duplex (Shankaracharya Niwas)</li>
+              <li><b>Onward Journey:</b> 11th March 2026 | Train No. 12905 – Shalimar SF Express | Departure 19:26 hrs</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>🎯 Priority Controls</h3>
+            <ul>
+              <li><span class="pill warn">Route clearance</span> before every movement</li>
+              <li><span class="pill good">3-layer security</span> at all key nodes</li>
+              <li><span class="pill warn">Crowd segregation</span> & emergency lane</li>
+              <li><span class="pill danger">Rapid response</span> readiness at venues</li>
+              <li><span class="pill">Comms redundancy</span> wireless + mobile</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Day 6 -->
+    <section id="day6">
+      <div class="sectionTitle">
+        <h2>📅 6th March 2026 (Friday) – Arrival & Movement to Panchkula</h2>
+        <div class="hint">Station → Convoy → Panchkula (55 km)</div>
+      </div>
+
+      <div class="card">
+        <div class="cardHeader">
+          <h3><span class="icon">🚉</span> Arrival & Convoy Operations</h3>
+          <span class="pill warn">High attention</span>
+        </div>
+        <div class="cardBody">
+          <div class="tableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 190px;">Time</th>
+                <th>Activity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Time"><strong>08:00 AM</strong></td>
+                <td data-label="Activity">Arrival at Vadodara Railway Station (BRC)<br><span class="pill">Train No. 12926 • Paschim Express</span></td>
+              </tr>
+              <tr>
+                <td data-label="Time"><strong>08:05 – 08:15 AM</strong></td>
+                <td data-label="Activity">Reception & secure escort formation</td>
+              </tr>
+              <tr>
+                <td data-label="Time"><strong>08:15 – 08:20 AM</strong></td>
+                <td data-label="Activity">Boarding into secured convoy</td>
+              </tr>
+              <tr>
+                <td data-label="Time"><strong>08:20 – 09:50 AM</strong></td>
+                <td data-label="Activity">Road movement Vadodara → Panchkula</td>
+              </tr>
+              <tr>
+                <td data-label="Time"><strong>09:50 – 10:00 AM</strong></td>
+                <td data-label="Activity">Arrival at Panchkula village</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Panchkula -->
+    <section id="panchkula">
+      <div class="sectionTitle">
+        <h2>📅 6th – 9th March 2026 – Panchkula Stay Period (Temple Program)</h2>
+        <div class="hint">Temple & stay security | daily standard operations</div>
+      </div>
+
+      <div class="note">
+        <b>Event:</b> Re-Pran Pratishta Ceremony of the 800-year-old Shivalaya Temple solemnized through the divine Kar-Kamal of Shankaracharya Mahabhag.
+      </div>
+
+      <div class="card">
+        <div class="cardHeader">
+          <h3><span class="icon">🛕</span> Daily Standard Security Protocol (Panchkula)</h3>
+          <span class="pill good">Routine + layered</span>
+        </div>
+        <div class="cardBody">
+          <div class="tableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 220px;">Time Block</th>
+                <th>Operational Activity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Time Block"><strong>05:30 – 06:30 AM</strong></td>
+                <td data-label="Activity">Temple & premises sanitization sweep</td>
+              </tr>
+              <tr>
+                <td data-label="Time Block"><strong>06:30 – 08:00 AM</strong></td>
+                <td data-label="Activity">Inner perimeter lockdown & access restriction</td>
+              </tr>
+              <tr>
+                <td data-label="Time Block"><strong>08:00 AM onwards</strong></td>
+                <td data-label="Activity">Controlled public access</td>
+              </tr>
+              <tr>
+                <td data-label="Time Block"><strong>Ceremony Period</strong></td>
+                <td data-label="Activity">Re-Pran Pratishta core ritual time</td>
+              </tr>
+              <tr>
+                <td data-label="Time Block"><strong>10:00 PM onwards</strong></td>
+                <td data-label="Activity">Night protocol</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+
+          <div class="grid2" style="margin-top:14px;">
+            <div class="panel">
+              <h3>👮 Police & Administration (Panchmahal District)</h3>
+              <ul>
+                <li><b>Superintendent of Police, Panchmahal:</b> Dr. Haresh Dudhat</li>
+              </ul>
+            </div>
+            <div class="panel">
+              <h3>🧩 Coordinators (Panchkula)</h3>
+              <ul>
+                <li><b>To be updated</b> (placeholders provided)</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Day 9 -->
+    <section id="day9">
+      <div class="sectionTitle">
+        <h2>📅 9th March 2026 (Monday) – Movement to Vadodara City</h2>
+        <div class="hint">Panchkula → Niwas (Pratapnagar)</div>
+      </div>
+
+      <div class="card">
+        <div class="cardHeader">
+          <h3><span class="icon">🚗</span> Transition & Residence Security Activation</h3>
+          <span class="pill warn">Movement window</span>
+        </div>
+        <div class="cardBody">
+          <div class="tableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 220px;">Time</th>
+                <th>Activity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Time"><strong>05:00 – 05:30 PM</strong></td>
+                <td data-label="Activity">Route clearance Panchkula → Vadodara</td>
+              </tr>
+              <tr>
+                <td data-label="Time"><strong>06:00 PM</strong></td>
+                <td data-label="Activity">Departure from Panchkula</td>
+              </tr>
+              <tr>
+                <td data-label="Time"><strong>07:30 – 07:45 PM</strong></td>
+                <td data-label="Activity">Arrival at Shivalay Duplex (Shankaracharya Niwas)</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+
+          <div class="panel" style="margin-top:14px;">
+            <h3>🏠 Niwas Address</h3>
+            <div style="color:var(--muted)">
+              <b style="color:var(--text)">Shivalay Duplex (Shankaracharya Niwas)</b><br>
+              House No. 3, Goya Gate Society,<br>
+              R.V. Desai Road, Pratapnagar, Vadodara – 390004
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Day 10 -->
+    <section id="day10">
+      <div class="sectionTitle">
+        <h2>📅 10th March 2026 (Tuesday) – Sanghoshti & Dharmsabha</h2>
+        <div class="hint">Niwas → Akota venue → Niwas</div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="cardHeader">
+            <h3><span class="icon">🗣️</span> 11:00 AM – Sanghoshti at Niwas</h3>
+            <span class="pill good">Static deployment</span>
+          </div>
+          <div class="cardBody">
+            <div class="tableWrap">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 210px;">Time</th>
+                  <th>Activity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Time"><strong>08:00 – 10:00 AM</strong></td>
+                  <td data-label="Activity">Premises security sweep</td>
+                </tr>
+                <tr>
+                  <td data-label="Time"><strong>10:00 – 11:00 AM</strong></td>
+                  <td data-label="Activity">Guest arrival management</td>
+                </tr>
+                <tr>
+                  <td data-label="Time"><strong>11:00 AM – 01:30 PM</strong></td>
+                  <td data-label="Activity">Sanghoshti session</td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardHeader">
+            <h3><span class="icon">🏛️</span> 04:30 PM – Dharmsabha at Akota</h3>
+            <span class="pill warn">Crowd control</span>
+          </div>
+          <div class="cardBody">
+            <div class="panel" style="margin-bottom:12px;">
+              <h3>📍 Venue Details</h3>
+              <ul>
+                <li><b>Venue:</b> Sir Sayajirao Nagar Gruh, Akota, Vadodara</li>
+                <li><b>Distance:</b> ~5 km from Niwas</li>
+              </ul>
+            </div>
+
+            <div class="tableWrap">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 210px;">Time</th>
+                  <th>Activity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Time"><strong>03:30 – 04:00 PM</strong></td>
+                  <td data-label="Activity">Route clearance Niwas → Venue</td>
+                </tr>
+                <tr>
+                  <td data-label="Time"><strong>04:30 – 05:00 PM</strong></td>
+                  <td data-label="Activity">Transit with escort</td>
+                </tr>
+                <tr>
+                  <td data-label="Time"><strong>05:00 – 08:30 PM</strong></td>
+                  <td data-label="Activity">Dharmsabha program & crowd management</td>
+                </tr>
+                <tr>
+                  <td data-label="Time"><strong>08:30 – 09:00 PM</strong></td>
+                  <td data-label="Activity">Return to Niwas</td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Day 11 -->
+    <section id="day11">
+      <div class="sectionTitle">
+        <h2>📅 11th March 2026 (Wednesday) – Final Day & Departure to Nagpur</h2>
+        <div class="hint">Niwas → Railway Station → Train 12905</div>
+      </div>
+
+      <div class="card">
+        <div class="cardHeader">
+          <h3><span class="icon">🚆</span> Sanghoshti + Railway Departure Operations</h3>
+          <span class="pill warn">Departure window</span>
+        </div>
+        <div class="cardBody">
+          <div class="tableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 220px;">Time</th>
+                <th>Activity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Time"><strong>08:00 – 10:30 AM</strong></td>
+                <td data-label="Activity">Security sweep & access control</td>
+              </tr>
+              <tr>
+                <td data-label="Time"><strong>11:00 AM – 01:30 PM</strong></td>
+                <td data-label="Activity">Sanghoshti session</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+
+          <div class="panel" style="margin-top:14px;">
+            <h3>🕒 Evening: Departure to Vadodara Junction Railway Station</h3>
+            <ul>
+              <li><b>Approx. departure from Niwas:</b> 06:00 PM</li>
+              <li><b>Distance:</b> ~5–6 km</li>
+              <li><b>Train:</b> 12905 – Shalimar SF Express</li>
+              <li><b>Departure time:</b> 19:26 hrs</li>
+            </ul>
+          </div>
+
+          <div class="tableWrap" style="margin-top:12px;">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 220px;">Time</th>
+                <th>Activity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Time"><strong>04:30 – 05:00 PM</strong></td>
+                <td data-label="Activity">Route clearance Niwas → Station</td>
+              </tr>
+              <tr>
+                <td data-label="Time"><strong>06:00 PM</strong></td>
+                <td data-label="Activity">Departure from Niwas</td>
+              </tr>
+              <tr>
+                <td data-label="Time"><strong>06:30 – 07:20 PM</strong></td>
+                <td data-label="Activity">Station entry, platform access & boarding procedure</td>
+              </tr>
+              <tr>
+                <td data-label="Time"><strong>07:26 PM</strong></td>
+                <td data-label="Activity">Train Departure to Nagpur</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacts -->
+    <section id="contacts">
+      <div class="sectionTitle">
+        <h2>📞 Coordination Contacts</h2>
+        <div class="hint">One-click copy for quick control-room sharing</div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="cardHeader">
+            <h3><span class="icon">🧩</span> Coordinators (Vadodara: 9th–11th March 2026)</h3>
+            <span class="pill">Operations</span>
+          </div>
+          <div class="cardBody">
+            <div class="contact">
+              <div>
+                <b>Hiren Pandya</b><br><span style="color:var(--muted)">+91 9825123918</span>
+              </div>
+              <div class="right">
+                <button class="mini copy" onclick="copyText('+919825123918')" title="Copy number"><span class="miniIcon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span> Copy</button>
+                <a class="mini call" href="tel:+919825123918" title="Call"><span class="miniIcon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> Call</a>
+              </div>
+            </div>
+
+            <div class="contact">
+              <div>
+                <b>Kapil Jindal</b><br><span style="color:var(--muted)">+91 6205804272</span>
+              </div>
+              <div class="right">
+                <button class="mini copy" onclick="copyText('+916205804272')" title="Copy number"><span class="miniIcon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span> Copy</button>
+                <a class="mini call" href="tel:+916205804272" title="Call"><span class="miniIcon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> Call</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardHeader">
+            <h3><span class="icon">👮</span> Police & Administration (Vadodara City)</h3>
+            <span class="pill warn">Jurisdiction</span>
+          </div>
+          <div class="cardBody">
+
+            <div class="contact">
+              <div>
+                <b>Police Commissioner: Shri Narasimha Komar</b><br>
+                <span style="color:var(--muted)">Mobile: 9978406095 | Office: 0265-2415111</span>
+              </div>
+              <div class="right">
+                <button class="mini copy" onclick="copyText('9978406095')" title="Copy number"><span class="miniIcon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span> Copy</button>
+                <a class="mini call" href="tel:9978406095" title="Call"><span class="miniIcon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> Call</a>
+              </div>
+            </div>
+
+            <div class="contact">
+              <div>
+                <b>D.C.P. Zone-1: Dr. Jagdish Chavada</b><br>
+                <span style="color:var(--muted)">Mobile: 9978405084 | Office: 0265-2432424</span>
+              </div>
+              <div class="right">
+                <button class="mini copy" onclick="copyText('9978405084')" title="Copy number"><span class="miniIcon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span> Copy</button>
+                <a class="mini call" href="tel:9978405084" title="Call"><span class="miniIcon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> Call</a>
+              </div>
+            </div>
+
+            <div class="contact">
+              <div>
+                <b>D.C.P. Zone-2: Shri Manjita Vanzara</b><br>
+                <span style="color:var(--muted)">Mobile: 9978408866 | Office: 0265-2432626</span>
+              </div>
+              <div class="right">
+                <button class="mini copy" onclick="copyText('9978408866')" title="Copy number"><span class="miniIcon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span> Copy</button>
+                <a class="mini call" href="tel:9978408866" title="Call"><span class="miniIcon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> Call</a>
+              </div>
+            </div>
+
+            <div class="contact">
+              <div>
+                <b>P.I. Navapura (Niwas): Shri M. S. Ansari</b><br>
+                <span style="color:var(--muted)">Mobile: 9427103492 | Office: 0265-2459461</span>
+              </div>
+              <div class="right">
+                <button class="mini copy" onclick="copyText('9427103492')" title="Copy number"><span class="miniIcon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span> Copy</button>
+                <a class="mini call" href="tel:9427103492" title="Call"><span class="miniIcon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> Call</a>
+              </div>
+            </div>
+
+            <div class="contact">
+              <div>
+                <b>P.I. Sayajigunj (Railway): Shri S. J. Pandiya</b><br>
+                <span style="color:var(--muted)">Mobile: 8758807070 | Office: 0265-2362400</span>
+              </div>
+              <div class="right">
+                <button class="mini copy" onclick="copyText('8758807070')" title="Copy number"><span class="miniIcon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span> Copy</button>
+                <a class="mini call" href="tel:8758807070" title="Call"><span class="miniIcon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> Call</a>
+              </div>
+            </div>
+
+            <div class="contact">
+              <div>
+                <b>P.I. Akota (Venue): Shri D. V. Baldaniya</b><br>
+                <span style="color:var(--muted)">Mobile: 7874565765 | Office: 0265-2993552</span>
+              </div>
+              <div class="right">
+                <button class="mini copy" onclick="copyText('7874565765')" title="Copy number"><span class="miniIcon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span> Copy</button>
+                <a class="mini call" href="tel:7874565765" title="Call"><span class="miniIcon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> Call</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Directives -->
+    <section id="directives">
+      <div class="sectionTitle">
+        <h2>✅ Critical Security Directives</h2>
+        <div class="hint">Operational baseline controls</div>
+      </div>
+
+      <div class="card">
+        <div class="cardHeader">
+          <h3><span class="icon">✅</span> Mandatory Controls</h3>
+          <span class="pill good">Must-follow</span>
+        </div>
+        <div class="cardBody">
+          <ul style="margin:0; padding-left:18px; color:var(--muted)">
+            <li><b style="color:var(--text)">3-layer security</b> at all key locations (Close protection / Police / Crowd control).</li>
+            <li><b style="color:var(--text)">Route domination</b> before each movement; choke points managed.</li>
+            <li><b style="color:var(--text)">Crowd segregation</b> (VIP / General / Restricted) with barricading & signage.</li>
+            <li><b style="color:var(--text)">Emergency evacuation lane</b> maintained at all venues.</li>
+            <li><b style="color:var(--text)">Medical support + ambulance</b> mandatory at crowd locations.</li>
+            <li><b style="color:var(--text)">Communication redundancy</b>: wireless + mobile backup.</li>
+            <li><b style="color:var(--text)">Night protocol</b>: restricted access and patrolling.</li>
+          </ul>
+
+          <div class="note" style="margin-top:14px;">
+            <b>Note:</b> Panchkula coordinators are marked “To be updated” because the original input contained placeholders.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Prepared for operational coordination • Print-ready • Version: 1.0 • Gujarat Program (6–11 March 2026)
+    </footer>
+
+  </div>
+
+  <script>
+    function scrollToId(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    async function copyText(text){
+      try{
+        await navigator.clipboard.writeText(text);
+        toast("Copied: " + text);
+      }catch(e){
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        toast("Copied: " + text);
+      }
+    }
+
+    // Minimal toast (no dependencies)
+    let toastTimer;
+    function toast(msg){
+      clearTimeout(toastTimer);
+      let t = document.getElementById('toast');
+      if(!t){
+        t = document.createElement('div');
+        t.id = 'toast';
+        t.style.position='fixed';
+        t.style.bottom='18px';
+        t.style.left='50%';
+        t.style.transform='translateX(-50%)';
+        t.style.padding='10px 14px';
+        t.style.border='1px solid rgba(0,0,0,.12)';
+        t.style.background='rgba(26,29,38,.9)';
+        t.style.color='#fff';
+        t.style.borderRadius='14px';
+        t.style.backdropFilter='blur(12px)';
+        t.style.boxShadow='0 18px 40px rgba(0,0,0,.35)';
+        t.style.fontWeight='700';
+        t.style.fontSize='13px';
+        t.style.zIndex='9999';
+        document.body.appendChild(t);
+      }
+      t.textContent = msg;
+      t.style.opacity = '1';
+      toastTimer = setTimeout(()=>{ t.style.opacity='0'; }, 1600);
+    }
+  </script>
+</body>
+</html>

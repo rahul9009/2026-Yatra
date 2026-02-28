@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>जगद्गुरु शंकराचार्य | गुजरात प्रवास – कार्यक्रम सूचना | </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafbfc;
+      --card: #ffffff;
+      --border: rgba(0,0,0,.1);
+      --text: #1a1d26;
+      --muted: #4b5563;
+      --accent: #7c3aed;
+      --accent-soft: rgba(124,58,237,.08);
+      --radius: 16px;
+      --radius-sm: 12px;
+      --shadow: 0 4px 24px rgba(0,0,0,.06);
+      --max: 560px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      font-family: 'Noto Sans Devanagari', ui-sans-serif, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px 16px 40px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    /* Top flourish */
+    .banner {
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* Pranam block */
+    .pranam {
+      text-align: center;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(124,58,237,.15);
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* Occasion label */
+    .occasion {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .occasion-label {
+      display: inline-block;
+      padding: 8px 20px;
+      background: linear-gradient(135deg, rgba(124,58,237,.12), rgba(124,58,237,.06));
+      border: 1px solid rgba(124,58,237,.2);
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    /* Jagadguru name block – desktop: one line same size; responsive: 3 lines with size hierarchy */
+    .jagadguru-block {
+      text-align: center;
+      margin-bottom: 8px;
+      padding: 0 8px;
+    }
+
+    /* Single-line (desktop): all same size */
+    .jagadguru-inline {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* Responsive: 3 lines with different sizes */
+    .jagadguru-stack {
+      display: none;
+    }
+
+    .jagadguru-stack .padvi-sthan {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      line-height: 1.4;
+      margin-bottom: 2px;
+    }
+
+    .jagadguru-stack .padvi {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .jagadguru-stack .nam {
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .gujarat-pravas {
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      margin-top: 6px;
+      margin-bottom: 24px;
+    }
+
+    /* "के पावन सान्निध्य में" */
+    .sannidhya {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    /* Event title card */
+    .event-title {
+      text-align: center;
+      padding: 18px 20px;
+      margin-bottom: 24px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .event-title .main {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+      margin: 0 0 4px;
+    }
+    .event-title .sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* Main program card */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 20px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+    .card h3 {
+      margin: 0 0 14px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card h3 .icon {
+      font-size: 1.1rem;
+    }
+    .card .row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      align-items: flex-start;
+    }
+    .card .row:last-child { margin-bottom: 0; }
+    .card .label {
+      flex-shrink: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+      min-width: 70px;
+    }
+    .card .value {
+      font-size: 0.95rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* Other programs list */
+    .other-programs {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .other-programs li {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+      align-items: flex-start;
+    }
+    .other-programs li:last-child { border-bottom: none; }
+    .other-programs .bullet { font-size: 1rem; flex-shrink: 0; }
+    .other-programs .time {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      min-width: 140px;
+    }
+    .other-programs .desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    /* Address block */
+    .address-block {
+      background: var(--accent-soft);
+      border: 1px solid rgba(124,58,237,.15);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .address-block strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    /* Invitation line */
+    .invitation {
+      text-align: center;
+      padding: 16px 20px;
+      margin: 24px 0 20px;
+      background: linear-gradient(135deg, rgba(124,58,237,.08), rgba(124,58,237,.04));
+      border: 1px solid rgba(124,58,237,.15);
+      border-radius: var(--radius);
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .invitation strong { color: var(--accent); }
+
+    /* Organiser */
+    .organiser {
+      text-align: center;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .organiser .tag {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .organiser .name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* Responsive: show stacked jagadguru name */
+    @media (max-width: 520px) {
+      .jagadguru-inline { display: none; }
+      .jagadguru-stack { display: block; }
+      body { padding: 16px 12px 32px; }
+      .card { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <p class="banner">🌸 जय श्री जगन्नाथ 🌸</p>
+
+    <p class="pranam">🙏 पूज्य भगवत्पाद गुरुदेव भगवान श्री के चरणों में साष्टांग दण्डवत प्रणाम 🙏</p>
+
+    <p class="occasion"><span class="occasion-label">✨ शुभ अवसर ✨</span></p>
+
+    <!-- Jagadguru name: desktop = one line same size; mobile = 3 lines (small / medium / large) -->
+    <div class="jagadguru-block">
+      <div class="jagadguru-inline" aria-hidden="true">
+        ऋग्वेदीय पूर्वाम्नाय श्रीगोवर्द्धनमठ पुरीपीठाधीश्वर श्रीमज्जगद्गुरू शङ्कराचार्य स्वामी श्रीनिश्चलानन्द सरस्वतीजी महाराज
+      </div>
+      <div class="jagadguru-stack" aria-hidden="true">
+        <div class="padvi-sthan">ऋग्वेदीय पूर्वाम्नाय श्रीगोवर्द्धनमठ पुरीपीठाधीश्वर</div>
+        <div class="padvi">श्रीमज्जगद्गुरू शङ्कराचार्य</div>
+        <div class="nam">स्वामी श्रीनिश्चलानन्द सरस्वतीजी महाराज</div>
+      </div>
+    </div>
+
+    <p class="gujarat-pravas">गुजरात प्रवास</p>
+
+    <p class="sannidhya">के पावन सान्निध्य में</p>
+
+    <div class="event-title">
+      <p class="main">🌺 धर्मसभा एवं संगोष्ठी 🌺</p>
+      <p class="sub">🕉️ सनातन धर्म एवं राष्ट्रोत्कर्ष पर अमृतवाणी 🕉️</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="icon">📅</span> मुख्य कार्यक्रम</h3>
+      <div class="row">
+        <span class="label">दिनांक</span>
+        <span class="value">10 मार्च 2026 (मंगलवार)</span>
+      </div>
+      <div class="row">
+        <span class="label">समय</span>
+        <span class="value">सायं 5:00 बजे</span>
+      </div>
+      <div class="row">
+        <span class="label">स्थान</span>
+        <span class="value">सर सैयाजीराव नगरगृह (कम्युनिटी हॉल), आकोटा, वडोदरा</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="icon">📌</span> अन्य कार्यक्रम</h3>
+      <ul class="other-programs">
+        <li>
+          <span class="bullet">🔹</span>
+          <span class="time">10 मार्च | प्रातः 11:00 बजे</span>
+          <span class="desc">निवास स्थान पर संगोष्ठी</span>
+        </li>
+        <li>
+          <span class="bullet">🔹</span>
+          <span class="time">11 मार्च | प्रातः 11:00 बजे</span>
+          <span class="desc">निवास स्थान पर संगोष्ठी</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="icon">🏠</span> निवास स्थान</h3>
+      <div class="address-block">
+        <strong>शिवालय डुप्लेक्स</strong>
+        हाउस नं. 3, गोया गेट सोसायटी,<br>
+        आर. वी. देसाई रोड, प्रतापनगर,<br>
+        वडोदरा – 390004
+      </div>
+    </div>
+
+    <p class="invitation">🙏 समस्त धर्मप्रेमी श्रद्धालुओं से <strong>सहपरिवार पधारने का विनम्र अनुरोध</strong> 🙏</p>
+
+    <div class="organiser">
+      <p class="tag">✨ आयोजक ✨</p>
+      <p class="name">आदित्य वाहिनी – वडोदरा</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
