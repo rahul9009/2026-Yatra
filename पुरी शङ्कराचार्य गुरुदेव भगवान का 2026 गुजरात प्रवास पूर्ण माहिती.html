@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>गुजरात प्रवास – कार्यक्रम | जगद्गुरु शङ्कराचार्य</title>
+  <style>
+    :root{
+      --bg: #fff7ed;
+      --surface: #ffffff;
+      --border: rgba(234,88,12,.15);
+      --text: #1a1d26;
+      --muted: #9a3412;
+      --accent: #ea580c;
+      --accent-soft: rgba(234,88,12,.12);
+      --orange: #ea580c;
+      --dark-orange: #c2410c;
+      --radius: 16px;
+      --radius-sm: 12px;
+      --shadow: 0 4px 24px rgba(234,88,12,.08);
+      --shadow-sm: 0 2px 8px rgba(234,88,12,.06);
+      --max: 900px;
+    }
+
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
+    body{
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Noto Sans Devanagari", "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 24px 20px 64px; min-width: 0; }
+
+    /* Hero: Dedicated title card – Jagadguru + Gujarat Pravas */
+    .heroBlock{
+      position: relative;
+      text-align: left;
+      padding: 40px 24px 36px;
+      margin-bottom: 28px;
+      background: linear-gradient(165deg, #fff9f5 0%, #fff5ee 35%, #ffefe6 100%);
+      border-radius: var(--radius);
+      border: 1px solid rgba(234,88,12,.2);
+      box-shadow: 0 8px 32px rgba(234,88,12,.12), 0 2px 8px rgba(0,0,0,.04);
+      overflow: hidden;
+    }
+    .heroBlock::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--dark-orange));
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .heroBlock::after{
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      right: -60px;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, rgba(234,88,12,.06) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    @media (max-width: 640px){
+      .heroBlock{ padding: 28px 18px 26px; margin-bottom: 20px; }
+      .heroBlock::after{ width: 100px; height: 100px; bottom: -40px; right: -40px; }
+    }
+    .heroBlock-inner{
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 28px;
+      text-align: left;
+    }
+    .heroLogo{
+      width: 220px;
+      height: 220px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid rgba(234,88,12,.25);
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(234,88,12,.12);
+    }
+    .heroLogo img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .heroLogo .heroLogo-placeholder{
+      width: 100%;
+      height: 100%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--accent-soft), rgba(234,88,12,.2));
+      color: var(--dark-orange);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .heroLogo.img-failed .heroLogo-placeholder{ display: flex; }
+    .heroLogo.img-failed img{ display: none; }
+    .heroRight{ flex: 1; min-width: 0; }
+    .jagatguruName{
+      width: 100%;
+      max-width: 52ch;
+      min-width: 0;
+    }
+    .jagatguruName.oneline .padvi-sthan{
+      display: block;
+      font-size: 0.98rem;
+      line-height: 1.4;
+      color: var(--orange);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .jagatguruName.oneline .padvi,
+    .jagatguruName.oneline .nam{
+      font-size: 1.28rem;
+      line-height: 1.45;
+      color: var(--dark-orange);
+      font-weight: 600;
+    }
+    .jagatguruName.oneline .padvi::after{ content: ' '; }
+    .jagatguruName .gujarat-pravas{
+      margin-top: 12px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--dark-orange);
+      letter-spacing: .04em;
+    }
+    .jagatguruName .gujarat-pravas-year{
+      font-size: 0.85em;
+      font-weight: 600;
+      letter-spacing: .06em;
+      color: var(--muted);
+      margin-left: 0.25em;
+    }
+    .heroUddesh{ margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(234,88,12,.2); }
+    .heroUddesh h3{ margin: 0 0 8px; font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+    .heroUddesh p{ margin: 0; font-size: 0.82rem; line-height: 1.65; color: var(--text); }
+    .jagatguruName.lines{ display: none; }
+    @media (max-width: 640px){
+      .heroBlock-inner{ flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+      .jagatguruName.oneline .padvi-sthan,
+      .jagatguruName.oneline .padvi,
+      .jagatguruName.oneline .nam{ display: block; }
+      .jagatguruName.oneline .padvi-sthan{ font-size: 0.82rem; margin-bottom: 2px; }
+      .jagatguruName.oneline .padvi{ font-size: 0.95rem; margin-bottom: 2px; }
+      .jagatguruName.oneline .nam{ font-size: 1.1rem; }
+      .jagatguruName .gujarat-pravas{ margin-top: 10px; font-size: 1.05rem; }
+      .heroUddesh{ margin-top: 14px; padding-top: 12px; text-align: left; }
+      .heroUddesh p{ font-size: 0.8rem; }
+    }
+
+    /* Program snapshot */
+    .snapshot{
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 20px 22px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      overflow-wrap: break-word;
+    }
+    .snapshot h2{
+      margin: 0 0 14px;
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .snapshot ul{
+      margin: 0;
+      padding-left: 20px;
+      color: var(--text);
+    }
+    .snapshot li{ margin: 8px 0; }
+    @media (max-width: 640px){
+      .snapshot{ padding: 16px 18px; margin-bottom: 20px; }
+      .snapshot ul{ padding-left: 18px; }
+    }
+
+    .downloadBar{ margin-top: 18px; margin-bottom: 24px; }
+
+    /* Section */
+    section{ margin-bottom: 26px; }
+    section:last-of-type{ margin-bottom: 0; }
+    .sectionHead{
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent-soft);
+    }
+    .sectionHead h2{
+      margin: 0;
+      font-size: clamp(1rem, 2vw + 0.5rem, 1.15rem);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.35;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    .sectionHead .hint{
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    @media (max-width: 640px){
+      section{ margin-bottom: 22px; }
+      .sectionHead{ margin-bottom: 10px; }
+    }
+
+    /* Cards */
+    .card{
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .card:last-child{ margin-bottom: 0; }
+    .cardHead{
+      padding: 14px 18px;
+      background: var(--accent-soft);
+      border-bottom: 1px solid var(--border);
+      font-weight: 700;
+      font-size: clamp(0.875rem, 1.5vw + 0.5rem, 0.95rem);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .cardBody{ padding: 16px 18px; }
+    .card.card--highlight{
+      border: 2px solid var(--accent);
+      background: linear-gradient(to bottom, rgba(234,88,12,.06) 0%, var(--surface) 120px);
+      box-shadow: 0 4px 20px rgba(234,88,12,.15);
+    }
+    .card.card--highlight .cardHead{
+      background: linear-gradient(135deg, rgba(234,88,12,.18) 0%, rgba(234,88,12,.1) 100%);
+      color: var(--dark-orange);
+      border-bottom-color: rgba(234,88,12,.25);
+    }
+    @media (max-width: 640px){
+      .card{ margin-bottom: 12px; padding: 0; }
+      .cardHead{ padding: 12px 16px; font-size: 0.9rem; }
+      .cardBody{ padding: 14px 16px; }
+    }
+
+    /* Program table */
+    .tableWrap{ width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    @media (min-width: 641px){
+      .tableWrap table.progTable{ min-width: 280px; }
+    }
+    .progTable{ width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .progTable th{
+      text-align: left;
+      padding: 10px 12px;
+      background: var(--bg);
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      border-bottom: 1px solid var(--border);
+    }
+    .progTable td{
+      padding: 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+    .progTable tr:last-child td{ border-bottom: none; }
+    .progTable .time{ font-weight: 600; color: var(--text); white-space: nowrap; }
+
+    /* Responsive: table rows as cards */
+    @media (max-width: 640px){
+      .tableWrap{ overflow-x: visible; margin: 0; }
+      .tableWrap table.progTable{ display: block; min-width: 0; }
+      .progTable thead{ display: none; }
+      .progTable tbody{ display: block; }
+      .progTable tr{
+        display: block;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 12px 14px;
+        margin-bottom: 10px;
+        background: var(--surface);
+        box-shadow: var(--shadow-sm);
+      }
+      .progTable tbody tr:last-child{ margin-bottom: 0; }
+      .progTable td{
+        display: block;
+        border: none;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(234,88,12,.1);
+      }
+      .progTable tr td:last-child{ border-bottom: none; padding-bottom: 0; }
+      .progTable tr td:first-child{ padding-top: 0; }
+      .progTable td::before{
+        content: attr(data-label);
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        color: var(--muted);
+        display: block;
+        margin-bottom: 4px;
+      }
+      .progTable .time{ white-space: normal; }
+    }
+
+    .note{
+      background: rgba(234,88,12,.08);
+      border: 1px solid rgba(234,88,12,.2);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      margin-bottom: 14px;
+      font-size: 0.9rem;
+      color: var(--text);
+      overflow-wrap: break-word;
+    }
+    .note b{ color: var(--dark-orange); }
+    @media (max-width: 640px){ .note{ padding: 12px 14px; margin-bottom: 12px; font-size: 0.875rem; } }
+
+    .venueBox{
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      margin: 12px 0;
+      font-size: 0.9rem;
+      color: var(--text);
+      overflow-wrap: break-word;
+    }
+    .venueBox b{ display: block; margin-bottom: 4px; }
+    @media (max-width: 640px){ .venueBox{ padding: 12px 14px; margin: 10px 0; font-size: 0.875rem; } }
+
+    /* Contacts section */
+    .downloadBar{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+    .downloadBtn{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s, transform .1s;
+      box-shadow: var(--shadow-sm);
+    }
+    .downloadBtn:hover{ background: var(--accent-soft); transform: translateY(-1px); }
+    .downloadBtn:active{ transform: translateY(0); }
+    .contactRow{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 10px;
+      background: var(--surface);
+    }
+    .contactRow:last-child{ margin-bottom: 0; }
+    .contactRow .name{ font-weight: 600; color: var(--text); }
+    .contactRow .phone{ font-size: 0.9rem; color: var(--muted); margin-top: 2px; }
+    .contactRow .right{ display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+    .callBtn{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--accent);
+      background: rgba(234,88,12,.1);
+      color: var(--dark-orange);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .callBtn:hover{ background: rgba(234,88,12,.18); }
+    .waBtn{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: 1px solid #22c55e;
+      background: rgba(34,197,94,.12);
+      color: #15803d;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .waBtn:hover{ background: rgba(34,197,94,.2); }
+    .wa-icon-svg{ width: 20px; height: 20px; flex-shrink: 0; display: block; }
+    .waBtn .wa-icon-svg{ color: #15803d; }
+    .waGroupLink .wa-icon-svg{ color: #0a5f2a; width: 22px; height: 22px; }
+    @media (max-width: 640px){
+      .contactRow{ flex-direction: column; align-items: flex-start; padding: 12px 14px; }
+      .contactRow .right{ width: 100%; justify-content: flex-start; }
+      .downloadBar{ margin-bottom: 16px; }
+      .downloadBtn{ padding: 10px 14px; font-size: 0.85rem; }
+    }
+
+    /* Govardhan Math / Links */
+    .mathDesc{ font-size: 0.9rem; color: var(--text); line-height: 1.6; margin: 0 0 14px; }
+    .bankBox{
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      margin: 12px 0;
+      font-size: 0.875rem;
+      color: var(--text);
+    }
+    .bankBox b{ color: var(--dark-orange); }
+    .upiDonateWrap{ margin-top: 10px; margin-bottom: 4px; }
+    .upiDonateBtn{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      background: transparent;
+      color: var(--text) !important;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1rem;
+      border: 1px solid var(--border);
+      transition: transform .15s, border-color .2s, background .2s;
+    }
+    .upiDonateBtn:hover{ transform: translateY(-1px); border-color: rgba(31,124,58,.4); background: rgba(31,124,58,.06); }
+    .upiDonateBtn:active{ transform: translateY(0); }
+    .upiDonateBtn .upi-icon-svg{ height: 26px; width: auto; max-width: 58px; object-fit: contain; flex-shrink: 0; display: block; }
+    .upiIdBelow{ display: block; margin-top: 8px; font-size: 0.85rem; color: var(--muted); font-weight: 600; word-break: break-all; }
+    .linkGrid{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .linkGrid a{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .linkGrid a:hover{ background: var(--accent-soft); }
+    @media (max-width: 640px){ .linkGrid{ gap: 8px; } .linkGrid a{ padding: 8px 12px; font-size: 0.8rem; } }
+
+    .waGroupList{ display: flex; flex-direction: column; gap: 10px; }
+    .waGroupLink{
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(37,211,102,.12);
+      color: #0a5f2a;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid rgba(37,211,102,.25);
+      transition: background .2s, transform .15s;
+    }
+    .waGroupLink:hover{ background: rgba(37,211,102,.2); }
+    @media (max-width: 640px){ .waGroupLink{ padding: 10px 14px; font-size: 0.9rem; } }
+
+    footer{
+      text-align: center;
+      padding: 20px 16px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 32px;
+    }
+    @media (max-width: 640px){
+      .wrap{ padding: 18px 14px 48px; }
+      footer{ padding: 16px 14px; margin-top: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol></svg>
+
+  <div class="wrap">
+
+    <!-- Hero: ID-card style – Left: Image | Right: Name + उद्देश्य -->
+    <header class="heroBlock" id="top">
+      <div class="heroBlock-inner">
+        <div class="heroLogo" id="heroLogoWrap">
+          <img src="https://i.postimg.cc/0KGybDgB/IMG-20260228-182057.jpg" alt="जगद्गुरु शङ्कराचार्य" width="220" height="220" decoding="async" onerror="var w=document.getElementById('heroLogoWrap'); if(w){ w.classList.add('img-failed'); } this.onerror=null;" />
+          <div class="heroLogo-placeholder" aria-hidden="true">श्री</div>
+        </div>
+
+        <div class="heroRight">
+          <div class="jagatguruName oneline" aria-hidden="true">
+            <span class="padvi-sthan">ऋग्वेदीय पूर्वाम्नाय श्रीगोवर्द्धनमठ पुरीपीठाधीश्वर</span>
+            <span class="padvi">श्रीमज्जगद्गुरू शङ्कराचार्य</span>
+            <span class="nam">स्वामी श्रीनिश्चलानन्द सरस्वतीजी महाराज</span>
+            <div class="gujarat-pravas">गुजरात प्रवास <span class="gujarat-pravas-year">६ - ११ मार्च २०२६</span></div>
+          </div>
+          <div class="heroUddesh">
+            <h3>उद्देश्य</h3>
+            <p>‘सुसंस्कृत, सुशिक्षित, सुरक्षित, सम्पन्न, सेवापरायण, स्वस्थ और सर्वहितपद व्यक्ति तथा सामाजिक संरचना’ एवं ‘अन्यों के हित का ध्यान रखते हुए हिन्दुओं के अस्तित्व और आदर्श की रक्षा, देश की सुरक्षा और अखण्डता’, सनातन दुर्ग, मठ तथा मंदिर, शुचिता, स्वच्छता, सुंदरता, शील तथा स्नेह से सम्पन्न व्यक्ति तथा समाज की संरचना के संस्थान।</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Program snapshot -->
+    <div class="snapshot">
+      <h2>कार्यक्रम संक्षेप</h2>
+      <ul>
+        <li><b>आगमन:</b> 6 मार्च 2026 – वडोदरा रेलवे स्टेशन (BRC) | ट्रेन नं. 12926 – पश्चिम एक्सप्रेस</li>
+        <li><b>ग्राम स्थल:</b> पाँच खोबला गाँव – श्रीसनातनी-सुनिश्चल महादेव मंदिर (वडोदरा से लगभग 55 किमी), गुजरात</li>
+        <li><b>निवास व कार्यक्रम:</b> 6–9 मार्च 2026 (पाँच खोबला गाँव – मंदिर कार्यक्रम)</li>
+        <li><b>वडोदरा निवास:</b> 9–11 मार्च 2026 – शिवालय डुप्लेक्स (शङ्कराचार्य निवास)</li>
+        <li><b>आगे यात्रा:</b> 11 मार्च 2026 | ट्रेन नं. 12905 – शालिमार SF एक्सप्रेस | प्रस्थान 19:26</li>
+      </ul>
+      <div class="downloadBar">
+        <button type="button" class="downloadBtn" onclick="downloadCalendar()">📅 कैलेंडर डाउनलोड (.ics)</button>
+        <button type="button" class="downloadBtn" onclick="downloadVcf()">📇 संपर्क VCF डाउनलोड</button>
+      </div>
+    </div>
+
+    <!-- 6 March -->
+    <section id="day6">
+      <div class="sectionHead">
+        <h2>📅 6 मार्च 2026 (शुक्रवार) – आगमन व पाँच खोबला गाँव</h2>
+        <div class="hint">वडोदरा स्टेशन → पाँच खोबला गाँव</div>
+      </div>
+      <div class="card card--highlight">
+        <div class="cardHead">🚉 आगमन व ग्राम प्रस्थान</div>
+        <div class="cardBody">
+          <div class="tableWrap">
+            <table class="progTable">
+              <thead>
+                <tr><th>समय</th><th>कार्यक्रम</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="time" data-label="समय"><strong>08:00 AM</strong></td>
+                  <td data-label="कार्यक्रम">वडोदरा रेलवे स्टेशन (BRC) पर आगमन<br><span style="font-size:0.85rem;color:var(--muted)">ट्रेन नं. 12926 – पश्चिम एक्सप्रेस</span></td>
+                </tr>
+                <tr>
+                  <td class="time" data-label="समय"><strong>08:20 – 10:00 AM</strong></td>
+                  <td data-label="कार्यक्रम">सड़क मार्ग वडोदरा → पाँच खोबला गाँव</td>
+                </tr>
+                <tr>
+                  <td class="time" data-label="समय"><strong>05:30 – 06:30 PM</strong></td>
+                  <td data-label="कार्यक्रम">संघोष्ठी सत्र</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6–9 March: Paanch Khobla village – Temple program -->
+    <section id="panchkula">
+      <div class="sectionHead">
+        <h2>📅 6–9 मार्च 2026 – श्रीसनातनी-सुनिश्चल महादेव मंदिर, पाँच खोबला गाँव (मंदिर कार्यक्रम)</h2>
+        <div class="hint">शिवालय मंदिर – पुनःप्राणप्रतिष्ठा</div>
+      </div>
+      <div class="note">
+        <b>शिवालय मंदिर – पुनःप्राणप्रतिष्ठा</b> जगद्गुरु शङ्कराचार्य महाभाग के दिव्य कर-कमल से।
+      </div>
+
+      <div class="card">
+        <div class="cardHead">🙏 दर्शन दीक्षा एवं संघोष्ठी सत्र</div>
+        <div class="cardBody">
+          <div class="tableWrap">
+            <table class="progTable">
+              <thead>
+                <tr><th>दिनांक</th><th>समय</th><th>कार्यक्रम</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="time" data-label="दिनांक">7 मार्च</td>
+                  <td data-label="समय"><strong>11:00 AM – 01:30 PM</strong></td>
+                  <td data-label="कार्यक्रम">दर्शन दीक्षा एवं संघोष्ठी सत्र</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="cardHead">🗣️ संघोष्ठी सत्र</div>
+        <div class="cardBody">
+          <div class="tableWrap">
+            <table class="progTable">
+              <thead>
+                <tr><th>दिनांक</th><th>समय</th><th>कार्यक्रम</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="time" data-label="दिनांक">6 मार्च</td>
+                  <td data-label="समय"><strong>05:30 – 06:30 PM</strong></td>
+                  <td data-label="कार्यक्रम">संघोष्ठी सत्र</td>
+                </tr>
+                <tr>
+                  <td class="time" data-label="दिनांक">7 मार्च</td>
+                  <td data-label="समय"><strong>05:30 – 06:30 PM</strong></td>
+                  <td data-label="कार्यक्रम">संघोष्ठी सत्र</td>
+                </tr>
+                <tr>
+                  <td class="time" data-label="दिनांक">8 मार्च</td>
+                  <td data-label="समय"><strong>05:30 – 06:30 PM</strong></td>
+                  <td data-label="कार्यक्रम">संघोष्ठी सत्र</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card--highlight">
+        <div class="cardHead">🛕 पुनःप्राण प्रतिष्ठा</div>
+        <div class="cardBody">
+          <div class="tableWrap">
+            <table class="progTable">
+              <thead>
+                <tr><th>दिनांक</th><th>समय</th><th>कार्यक्रम</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="time" data-label="दिनांक">8 मार्च</td>
+                  <td data-label="समय"><strong>11:00 AM – 01:30 PM</strong></td>
+                  <td data-label="कार्यक्रम">पुनःप्राण प्रतिष्ठा</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card--highlight">
+        <div class="cardHead">📿 धर्मसभा</div>
+        <div class="cardBody">
+          <div class="tableWrap">
+            <table class="progTable">
+              <thead>
+                <tr><th>दिनांक</th><th>समय</th><th>कार्यक्रम</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="time" data-label="दिनांक">9 मार्च</td>
+                  <td data-label="समय"><strong>11:00 AM – 01:30 PM</strong></td>
+                  <td data-label="कार्यक्रम">धर्मसभा</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 March – Baroda arrival -->
+    <section id="day9">
+      <div class="sectionHead">
+        <h2>📅 9–11 मार्च 2026 – बड़ौदा कार्यक्रम</h2>
+        <div class="hint">पाँच खोबला → वडोदरा निवास</div>
+      </div>
+      <div class="card">
+        <div class="cardHead">🚗 बड़ौदा आगमन</div>
+        <div class="cardBody">
+          <div class="tableWrap">
+            <table class="progTable">
+              <thead>
+                <tr><th>दिनांक</th><th>समय</th><th>कार्यक्रम</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="time" data-label="दिनांक">9 मार्च</td>
+                  <td data-label="समय"><strong>05:00 PM – 06:30 PM</strong></td>
+                  <td data-label="कार्यक्रम">बड़ौदा आगमन (पाँच खोबला से वडोदरा निवास)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="venueBox">
+            <b>निवास पता</b>
+            शिवालय डुप्लेक्स (शङ्कराचार्य निवास)<br>
+            House No. 3, Goya Gate Society, R.V. Desai Road, Pratapnagar, Vadodara – 390004
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 March – Sanghoshti + Dharmsabha -->
+    <section id="day10">
+      <div class="sectionHead">
+        <h2>📅 10 मार्च 2026 (मंगलवार) – दर्शन दीक्षा, संघोष्ठी व धर्मसभा</h2>
+        <div class="hint">निवास पर संगोष्ठी → अकोटा धर्मसभा</div>
+      </div>
+      <div class="card">
+        <div class="cardHead">🗣️ दर्शन दीक्षा एवं संघोष्ठी सत्र (निवास स्थान पर)</div>
+        <div class="cardBody">
+          <div class="tableWrap">
+            <table class="progTable">
+              <thead>
+                <tr><th>समय</th><th>कार्यक्रम</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="time" data-label="समय"><strong>11:00 AM – 01:30 PM</strong></td>
+                  <td data-label="कार्यक्रम">दर्शन दीक्षा एवं संघोष्ठी सत्र</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card card--highlight">
+        <div class="cardHead">📿 धर्मसभा – 10 मार्च</div>
+        <div class="cardBody">
+          <div class="tableWrap">
+            <table class="progTable">
+              <thead>
+                <tr><th>दिनांक</th><th>समय</th><th>कार्यक्रम</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="time" data-label="दिनांक">10 मार्च</td>
+                  <td data-label="समय"><strong>05:00 PM</strong></td>
+                  <td data-label="कार्यक्रम">धर्मसभा – सर सैयाजीराव नगरगृह (कम्युनिटी हॉल), आकोटा, वडोदरा</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 March -->
+    <section id="day11">
+      <div class="sectionHead">
+        <h2>📅 11 मार्च 2026 (बुधवार) – संघोष्ठी व नागपुर प्रस्थान</h2>
+        <div class="hint">निवास पर संगोष्ठी → रेलवे स्टेशन</div>
+      </div>
+      <div class="card">
+        <div class="cardHead">🗣️ दर्शन दीक्षा एवं संघोष्ठी सत्र (निवास स्थान पर)</div>
+        <div class="cardBody">
+          <div class="tableWrap">
+            <table class="progTable">
+              <thead>
+                <tr><th>समय</th><th>कार्यक्रम</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="time" data-label="समय"><strong>11:00 AM – 01:30 PM</strong></td>
+                  <td data-label="कार्यक्रम">संघोष्ठी सत्र – निवास स्थान पर</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="cardHead">🚆 रेल प्रस्थान – नागपुर</div>
+        <div class="cardBody">
+          <div class="venueBox">
+            <b>वडोदरा जंक्शन रेलवे स्टेशन</b>
+            निवास से लगभग 06:00 PM प्रस्थान • दूरी लगभग 5–6 किमी<br>
+            ट्रेन: 12905 – शालिमार SF एक्सप्रेस • प्रस्थान 19:26
+          </div>
+          <div class="tableWrap" style="margin-top:12px;">
+            <table class="progTable">
+              <thead>
+                <tr><th>समय</th><th>कार्यक्रम</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="time" data-label="समय"><strong>04:30 – 06:00 PM</strong></td>
+                  <td data-label="कार्यक्रम">निवास से स्टेशन रवानगी तैयारी</td>
+                </tr>
+                <tr>
+                  <td class="time" data-label="समय"><strong>06:30 – 07:20 PM</strong></td>
+                  <td data-label="कार्यक्रम">स्टेशन प्रवेश, प्लेटफॉर्म व बोर्डिंग</td>
+                </tr>
+                <tr>
+                  <td class="time" data-label="समय"><strong>07:26 PM</strong></td>
+                  <td data-label="कार्यक्रम">ट्रेन प्रस्थान – नागपुर की ओर</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- संपर्क सूत्र -->
+    <section id="contacts">
+      <div class="sectionHead">
+        <h2>📞 संपर्क सूत्र</h2>
+        <div class="hint">कॉल करने के लिए बटन दबाएँ • VCF डाउनलोड ऊपर देखें</div>
+      </div>
+
+      <div class="card">
+        <div class="cardHead">राष्ट्रीय संपर्क सूत्र</div>
+        <div class="cardBody">
+          <div class="contactRow">
+            <div>
+              <div class="name">ब्रह्मचारी प्रफुल्ल चैतन्य जी</div>
+              <div class="phone">8081748542</div>
+            </div>
+            <div class="right">
+              <a class="callBtn" href="tel:+918081748542">📞 कॉल</a>
+              <a class="waBtn" href="https://wa.me/918081748542" target="_blank" rel="noopener"><svg class="wa-icon-svg" aria-hidden="true"><use href="#wa-icon"/></svg> WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="cardHead">गुजरात प्रदेश आदित्य वाहिनी संगठन</div>
+        <div class="cardBody">
+          <div class="contactRow">
+            <div>
+              <div class="name">राहुल पटेल, संयोजक</div>
+              <div class="phone">9727749009</div>
+            </div>
+            <div class="right">
+              <a class="callBtn" href="tel:+919727749009">📞 कॉल</a>
+              <a class="waBtn" href="https://wa.me/919727749009" target="_blank" rel="noopener"><svg class="wa-icon-svg" aria-hidden="true"><use href="#wa-icon"/></svg> WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="cardHead">बड़ौदा जिला आदित्य वाहिनी संगठन</div>
+        <div class="cardBody">
+          <div class="contactRow">
+            <div>
+              <div class="name">हीरेन पंड्या, संयोजक</div>
+              <div class="phone">9825123918</div>
+            </div>
+            <div class="right">
+              <a class="callBtn" href="tel:+919825123918">📞 कॉल</a>
+              <a class="waBtn" href="https://wa.me/919825123918" target="_blank" rel="noopener"><svg class="wa-icon-svg" aria-hidden="true"><use href="#wa-icon"/></svg> WhatsApp</a>
+            </div>
+          </div>
+          <div class="contactRow">
+            <div>
+              <div class="name">कल्पेश सोलंकी (राजाराम), संयोजक</div>
+              <div class="phone">9737290204</div>
+            </div>
+            <div class="right">
+              <a class="callBtn" href="tel:+919737290204">📞 कॉल</a>
+              <a class="waBtn" href="https://wa.me/919737290204" target="_blank" rel="noopener"><svg class="wa-icon-svg" aria-hidden="true"><use href="#wa-icon"/></svg> WhatsApp</a>
+            </div>
+          </div>
+          <div class="contactRow">
+            <div>
+              <div class="name">हर्षित दुबे, संयोजक</div>
+              <div class="phone">9106676175</div>
+            </div>
+            <div class="right">
+              <a class="callBtn" href="tel:+919106676175">📞 कॉल</a>
+              <a class="waBtn" href="https://wa.me/919106676175" target="_blank" rel="noopener"><svg class="wa-icon-svg" aria-hidden="true"><use href="#wa-icon"/></svg> WhatsApp</a>
+            </div>
+          </div>
+          <div class="contactRow">
+            <div>
+              <div class="name">हार्दिक सोलंकी, संयोजक</div>
+              <div class="phone">9898567587</div>
+            </div>
+            <div class="right">
+              <a class="callBtn" href="tel:+919898567587">📞 कॉल</a>
+              <a class="waBtn" href="https://wa.me/919898567587" target="_blank" rel="noopener"><svg class="wa-icon-svg" aria-hidden="true"><use href="#wa-icon"/></svg> WhatsApp</a>
+            </div>
+          </div>
+          <div class="contactRow">
+            <div>
+              <div class="name">कपिल जिंदल, निवास स्थान यजमान</div>
+              <div class="phone">6205804272</div>
+            </div>
+            <div class="right">
+              <a class="callBtn" href="tel:+916205804272">📞 कॉल</a>
+              <a class="waBtn" href="https://wa.me/916205804272" target="_blank" rel="noopener"><svg class="wa-icon-svg" aria-hidden="true"><use href="#wa-icon"/></svg> WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="cardHead">बड़ौदा जिला आनंद वाहिनी संगठन</div>
+        <div class="cardBody">
+          <div class="contactRow">
+            <div>
+              <div class="name">अपर्णा दुबे, संयोजक</div>
+              <div class="phone">9022778415</div>
+            </div>
+            <div class="right">
+              <a class="callBtn" href="tel:+919022778415">📞 कॉल</a>
+              <a class="waBtn" href="https://wa.me/919022778415" target="_blank" rel="noopener"><svg class="wa-icon-svg" aria-hidden="true"><use href="#wa-icon"/></svg> WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Govardhan Math, Puri -->
+    <section id="govardhan-math">
+      <div class="sectionHead">
+        <h2>🛕 Govardhan Math, Puri</h2>
+        <div class="hint">पूर्वाम्नाय श्री गोवर्द्धन मठ, पुरी</div>
+      </div>
+      <div class="card">
+        <div class="cardHead">About</div>
+        <div class="cardBody">
+          <p class="mathDesc">Bhagvatpada Adi Shankaracharya established four monasteries in the four corners of India. 2500 years ago, on the auspicious tenth day of the bright fortnight of the month of Vaisakh, Bhagvatpada Adi Shankaracharya established the eastern monastery associated with Rigved called <b>“Poorvamnaya Sri Govardhan Math – Bhogavardhan Peetham”</b>.</p>
+          <div class="contactRow">
+            <div>
+              <div class="name">Contact</div>
+              <div class="phone">+91 8081748542</div>
+            </div>
+            <div class="right">
+              <a class="callBtn" href="tel:+918081748542">📞 कॉल</a>
+              <a class="waBtn" href="https://wa.me/918081748542" target="_blank" rel="noopener"><svg class="wa-icon-svg" aria-hidden="true"><use href="#wa-icon"/></svg> WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="cardHead">BANK DETAILS FOR DONATIONS (Only INR accepted)</div>
+        <div class="cardBody">
+          <div class="bankBox">
+            <b>DONATE – UPI:</b>
+            <div class="upiDonateWrap">
+              <a class="upiDonateBtn" href="upi://pay?pa=govardhanmath@allbank&pn=Govardhan%20Math%20Donation&cu=INR" target="_blank" rel="noopener">
+                <img src="upi.svg" class="upi-icon-svg" alt="UPI" width="58" height="26">
+                Donate
+              </a>
+              <span class="upiIdBelow">govardhanmath@allbank</span>
+            </div>
+            <br>
+            <b>BANK NAME:</b> INDIAN BANK<br>
+            <b>A/C NO:</b> SB 21224995438<br>
+            <b>IFSC CODE:</b> IDIB000S601<br>
+            <b>A/c name:</b> POORVAMNAYA JAGADGURU SHANKARACHARYA DHARMIK AVM PUNYARTHA NYAS.<br><br>
+            <span style="font-size:0.85rem;color:var(--muted)">Donation amount is Tax Exempted u/s 80G.</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="cardHead">Official Social Media Links</div>
+        <div class="cardBody">
+          <div class="linkGrid">
+            <a href="https://rzp.io/l/GovardhanPeeth" target="_blank" rel="noopener">Donate</a>
+            <a href="http://govardhanpeeth.org" target="_blank" rel="noopener">Website</a>
+            <a href="https://www.facebook.com/govardhanpeeth" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://twitter.com/govardhanmath" target="_blank" rel="noopener">Twitter</a>
+            <a href="https://www.youtube.com/GovardhanMathPuri" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://api.whatsapp.com/send?phone=918847882494" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="https://whatsapp.com/channel/0029VaezUteL2AU2g5Vte33r" target="_blank" rel="noopener">WhatsApp Channel</a>
+            <a href="https://play.google.com/store/apps/details?id=org.govardhanmath.app" target="_blank" rel="noopener">Android App</a>
+            <a href="https://linkedin.com/in/govardhanmath" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="cardHead">गुजरात संगठन वॉट्सएप ग्रुप</div>
+        <div class="cardBody">
+          <div class="waGroupList">
+            <a class="waGroupLink" href="https://chat.whatsapp.com/LLtQwvwhVcX2OKf6XpNAER?mode=gi_t" target="_blank" rel="noopener"><svg class="wa-icon-svg" aria-hidden="true"><use href="#wa-icon"/></svg> आदित्य वाहिनी गुजरात</a>
+            <a class="waGroupLink" href="https://chat.whatsapp.com/I4jAy7muug84HwXOGhUor9?mode=gi_t" target="_blank" rel="noopener"><svg class="wa-icon-svg" aria-hidden="true"><use href="#wa-icon"/></svg> बड़ौदा आदित्य वाहिनी</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="mathDesc" style="text-align:center; margin-top:8px; color:var(--muted); font-size:0.875rem;">Thank you for your support and attention!</p>
+    </section>
+
+    <footer>
+      गुजरात प्रवास कार्यक्रम • 6–11 मार्च 2026
+    </footer>
+
+  </div>
+
+  <script>
+    function pad2(n){ return (n<10?'0':'')+n; }
+    function formatICSDateLocal(d){
+      var y = d.getFullYear(), m = d.getMonth()+1, day = d.getDate();
+      var h = d.getHours(), min = d.getMinutes(), sec = d.getSeconds();
+      return ''+y+pad2(m)+pad2(day)+'T'+pad2(h)+pad2(min)+pad2(sec);
+    }
+    function formatICSDateUTC(d){
+      var d2 = new Date(d.getTime());
+      var t = d2.toISOString();
+      return t.replace(/[-:]/g,'').replace(/\.\d{3}/,'').replace('T','T').slice(0,15);
+    }
+    function escapeICSText(s){
+      if(!s) return '';
+      return String(s).replace(/\r?\n/g,' ').replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,');
+    }
+    function downloadCalendar(){
+      var events = [
+        { start: [2026,2,6,8,0], end: [2026,2,6,10,0], title: 'Aagman Vadodara Station - Panch Khobla', loc: 'Vadodara Railway Station (BRC)' },
+        { start: [2026,2,6,17,30], end: [2026,2,6,18,30], title: 'Sanghoshti Session', loc: 'Panch Khobla Village' },
+        { start: [2026,2,7,11,0], end: [2026,2,7,13,30], title: 'Darshan Diksha evam Sanghoshti', loc: 'Panch Khobla Village' },
+        { start: [2026,2,7,17,30], end: [2026,2,7,18,30], title: 'Sanghoshti Session', loc: 'Panch Khobla Village' },
+        { start: [2026,2,8,11,0], end: [2026,2,8,13,30], title: 'Punah Pran Pratishtha', loc: 'Panch Khobla Village' },
+        { start: [2026,2,8,17,30], end: [2026,2,8,18,30], title: 'Sanghoshti Session', loc: 'Panch Khobla Village' },
+        { start: [2026,2,9,11,0], end: [2026,2,9,13,30], title: 'Dharmsabha', loc: 'Panch Khobla Village' },
+        { start: [2026,2,9,5,0], end: [2026,2,9,18,30], title: 'Baroda Aagman', loc: 'Panch Khobla to Vadodara Niwas' },
+        { start: [2026,2,10,11,0], end: [2026,2,10,13,30], title: 'Darshan Diksha evam Sanghoshti (Niwas)', loc: 'Shivalay Duplex, Vadodara' },
+        { start: [2026,2,10,17,30], end: [2026,2,10,18,30], title: 'Darshan Diksha evam Sanghoshti (Niwas)', loc: 'Shivalay Duplex, Vadodara' },
+        { start: [2026,2,10,17,0], end: [2026,2,10,20,0], title: 'Dharmsabha', loc: 'Sir Sayajirao Nagar Gruh, Akota, Vadodara' },
+        { start: [2026,2,11,11,0], end: [2026,2,11,13,30], title: 'Sanghoshti Session (Niwas)', loc: 'Shivalay Duplex, Vadodara' },
+        { start: [2026,2,11,19,26], end: [2026,2,11,19,30], title: 'Rail Prasthan - Nagpur', loc: 'Vadodara Junction, Train 12905' }
+      ];
+      var nowUtc = new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'').replace('T','T') + 'Z';
+      var ics = 'BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Gujarat Pravas 2026//EN\r\nCALSCALE:GREGORIAN\r\nMETHOD:PUBLISH\r\n';
+      events.forEach(function(ev, i){
+        var s = new Date(ev.start[0], ev.start[1], ev.start[2], ev.start[3], ev.start[4]);
+        var e = new Date(ev.end[0], ev.end[1], ev.end[2], ev.end[3], ev.end[4]);
+        var uid = 'gujarat-pravas-2026-' + i + '-' + formatICSDateLocal(s) + '@yatra';
+        ics += 'BEGIN:VEVENT\r\n';
+        ics += 'UID:' + uid + '\r\n';
+        ics += 'DTSTAMP:' + nowUtc + '\r\n';
+        ics += 'DTSTART;TZID=Asia/Kolkata:' + formatICSDateLocal(s) + '\r\n';
+        ics += 'DTEND;TZID=Asia/Kolkata:' + formatICSDateLocal(e) + '\r\n';
+        ics += 'SUMMARY:' + escapeICSText(ev.title) + '\r\n';
+        if(ev.loc) ics += 'LOCATION:' + escapeICSText(ev.loc) + '\r\n';
+        ics += 'END:VEVENT\r\n';
+      });
+      ics += 'END:VCALENDAR\r\n';
+      var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'gujarat-pravas-2026.ics';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+    var vcfContacts = [
+      { name: 'Brahhmachari Prafull Chaitanya Ji', tel: '8081748542', org: 'Rashtriya Sampark' },
+      { name: 'Rahul Patel', tel: '9727749009', org: 'Gujarat Aditya Vahini' },
+      { name: 'Hiren Pandya', tel: '9825123918', org: 'Baroda Aditya Vahini' },
+      { name: 'Kapil Jindal (Niwas Yajman)', tel: '6205804272', org: 'Baroda Aditya Vahini' },
+      { name: 'Kalpesh Solanki (Rajaram Ji)', tel: '9737290204', org: 'Baroda Aditya Vahini' },
+      { name: 'Harshit Dubey', tel: '9106676175', org: 'Baroda Aditya Vahini' },
+      { name: 'Hardik Solanki', tel: '9898567587', org: 'Baroda Aditya Vahini' },
+      { name: 'Aparna Dubey', tel: '9022778415', org: 'Baroda Anand Vahini' }
+    ];
+    function downloadVcf(){
+      var vcf = '';
+      vcfContacts.forEach(function(c){
+        vcf += 'BEGIN:VCARD\r\n';
+        vcf += 'VERSION:2.1\r\n';
+        vcf += 'FN:' + (c.name || '').replace(/[\r\n;]/g,' ') + '\r\n';
+        vcf += 'TEL;CELL:+91' + c.tel + '\r\n';
+        if(c.org) vcf += 'ORG:' + (c.org || '').replace(/[\r\n;]/g,' ') + '\r\n';
+        vcf += 'END:VCARD\r\n';
+      });
+      var blob = new Blob([vcf], { type: 'text/vcard;charset=utf-8' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'gujarat-pravas-contacts.vcf';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+  </script>
+
+</body>
+</html>
